@@ -31,6 +31,7 @@ const Weather = () => {
     "13n":snow_icon,
   }
 
+  // If input is empty show alert
   const search=async(city)=>{
     if (city===""){
         alert("Enter City Name");
@@ -42,7 +43,8 @@ const Weather = () => {
     
       const response=await fetch(url);
       const data=await response.json();
-      
+       
+      // if city not found
       if(!response.ok){
         alert(data.message)
         return ;
@@ -66,9 +68,9 @@ const Weather = () => {
 
     }
   }
-
-  useEffect(()=>{
-     search("London");
+  // loads the default city 
+  useEffect(()=>{     
+     search("Hyderabad");
 
   },[])
 
